@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: appdynamics-infraviz
+  namespace: appdynamics
+---
+apiVersion: appdynamics.com/v1alpha1
+kind: InfraViz
+metadata:
+  name: appd-infraviz
+  namespace: appdynamics
+spec:
+  controllerUrl: "http://<appdynamics-controller-host>:8080"
+  image: "<your-docker-registry>/appdynamics/machine-agent-analytics:latest"
+  account: "<account-name>"
+  globalAccount: "<global-account-name>"
